@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\MayBatch1AspCoreApp.props" />
+</Project>

@@ -1,0 +1,20 @@
+﻿@model IEnumerable<Emp>
+
+@{
+    var employees = TempData["obj"] as IEnumerable<Emp>;
+    if (employees != null)
+    {
+        foreach (var d in employees)
+        {
+            <div>
+                <p>Id: @d.Id</p>
+                <p>Name: @d.Name</p>
+                <p>Salary: @d.Salary</p>
+            </div>
+        }
+    }
+    else
+    {
+        <p>No data available</p>
+    }
+}

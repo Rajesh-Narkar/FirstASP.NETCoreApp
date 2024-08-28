@@ -1,0 +1,17 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+@model Emp
+
+@foreach(var d in ViewBag.obj)
+{
+    <div>
+        <p>Id: @d.Id</p>
+        <p>Name: @d.Name</p>
+        <p>Salary: @d.Salary</p>
+    </div>
+}
+

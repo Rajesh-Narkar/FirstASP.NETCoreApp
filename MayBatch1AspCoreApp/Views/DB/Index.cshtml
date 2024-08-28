@@ -1,0 +1,50 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+@model List<Emp>
+
+<h1>Index</h1>
+<a asp-controller="DB" asp-action="AddEmp">
+<button class="btn btn-info" >Add Emp</button>
+</a>
+<table id="myTable" class="table">
+    <thead>
+        <tr>
+            <th scope="col">Id</th>
+            <th scope="col">Name</th>
+            <th scope="col">Salary</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var i in Model)
+        {
+            <tr>
+                <th scope="row">@i.Id</th>
+                <td>@i.Name</td>
+                <td>@i.Salary</td>
+                <td>
+                    <a asp-action="UpdateEmp" asp-controller="DB" asp-route-id="@i.Id"><button class="btn btn-success" value="Edit">Edit</button></a>
+                     <a asp-action="DeleteEmp" asp-controller="DB" asp-route-id="@i.Id"><button class="btn btn-danger" value="Delete" onclick='return confirm("Are You Sure to Delete this Record?")'>Delete</button></a>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section scripts{
+    <link href="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.8/af-2.7.0/b-3.0.2/b-html5-3.0.2/b-print-3.0.2/datatables.min.css" rel="stylesheet">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.2.7/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/v/dt/jszip-3.10.1/dt-2.0.8/af-2.7.0/b-3.0.2/b-html5-3.0.2/b-print-3.0.2/datatables.min.js"></script>
+    <script>
+        $('#myTable').DataTable({
+            dom: 'Bftip',
+            buttons: [
+                'copy', 'excel', 'pdf','print'
+            ]
+        });
+    </script>
+    
+}

@@ -1,0 +1,63 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model AllDetails
+<head>
+<style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+ </style>
+</head>
+<h2>Employees</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Salary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var emp in Model.Employees)
+        {
+            <tr>
+                <td>@emp.Id</td>
+                <td>@emp.Name</td>
+                <td>@emp.Salary</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<h2>Managers</h2>
+<table border="1">
+    <thead>
+        <tr>
+            <th>MgrId</th>
+            <th>MgrName</th>
+            <th>MgrSalary</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var mgr in Model.Managers)
+        {
+            <tr>
+                <td>@mgr.MgrId</td>
+                <td>@mgr.MgrName</td>
+                <td>@mgr.MgrSalary</td>
+            </tr>
+        }
+    </tbody>
+</table>
